@@ -51,8 +51,6 @@ class UserOperation():
         else:
             return 1
         
-
-    
     
 
 

@@ -1,6 +1,7 @@
 from flask import Flask,render_template,request,flash,redirect,url_for
 from user import UserOperation
 from encryption import Encryption
+from validate import MyValidate
 
 
 app=Flask(__name__)
@@ -8,6 +9,7 @@ app=Flask(__name__)
 app.secret_key="88098as0d8a0sd8asd"
 
 userobj=UserOperation() #User object
+validobj=MyValidate()  #Validation object
 
 
 @app.route("/")
@@ -36,6 +38,13 @@ def signup():
         e=Encryption()
         password=e.convert(password)
 
+        # ******************** VALIDATION (FORM FIELDS SHOULD NOT BE EMPTY) ***********************
+        frm=[fname,lname,user_name,email,password]
+        if(not validobj.required(frm)):
+            flash("The field Cannot be empty!")
+            return redirect(url_for("signup"))
+        
+
         if(urc==0 and erc==0):
             userobj.user_insert(fname,lname,user_name,email,password)
             flash("Successfully Registered! Login Now!")
@@ -49,6 +58,8 @@ def signup():
                 flash("Email already exists!")
             return redirect(url_for("signup"))
 
-
+@app.route("/otp_verify")
+def otp_verify():
+    return render_template("otp.html")
 if __name__ == "__main__":
     app.run(debug=True)
