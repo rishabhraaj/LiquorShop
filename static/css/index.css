@@ -1,0 +1,61 @@
+.video-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+#background-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* This ensures the video covers the entire container */
+    z-index: -1;
+}
+
+
+/* Explore button */
+/* Explore Button */
+.explore-button {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+    ;
+}
+
+/* Explore Button Text */
+.explore-button a {
+    color: white;
+    /* Change text color to white */
+    text-decoration: none;
+    /* Remove text decoration */
+}
+
+/* Downward-pointing Arrow Icon */
+/* Arrow Icon */
+.arrow-down {
+    position: fixed;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: arrowBounce 1s infinite alternate;
+    color: white
+}
+
+/* Keyframes for Arrow Animation */
+@keyframes arrowBounce {
+    0% {
+        transform: translateX(-50%) translateY(0);
+    }
+
+    100% {
+        transform: translateX(-50%) translateY(5px);
+    }
+}

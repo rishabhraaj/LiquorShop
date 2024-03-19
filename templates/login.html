@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block title%} Login {% endblock title %}
+
+
+
+{% block body %}
+
+<head>
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../static/css/login_signup.css">
+</head>
+<div class="background">
+    <div class="shape"></div>
+    <div class="shape"></div>
+</div>
+{% with messages= get_flashed_messages() %}
+{%if messages%}
+{%for messages in messages %}
+<div class="alert alert-success" role="alert">
+    {{messages}}
+</div>
+{%endfor%}
+{%endif%}
+{%endwith%}
+<form>
+    <h3>Login Here</h3>
+
+    <label for="username">Username</label>
+    <input type="text" placeholder="Email or Phone" id="username">
+
+    <label for="password">Password</label>
+    <input type="password" placeholder="Password" id="password">
+
+    <button>Log In</button>
+    <p>Don't have an account? <a href="signup">Signup Now</a> </p>
+</form>
+{% endblock body %}

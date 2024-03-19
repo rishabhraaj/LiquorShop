@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block title %}SignUp{% endblock title %}
+
+{% block body %}
+
+<head>
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../static/css/login_signup.css">
+</head>
+<div class="background">
+    <div class="shape"></div>
+    <div class="shape"></div>
+</div>
+{% with messages= get_flashed_messages() %}
+{%if messages%}
+{%for messages in messages %}
+<div class="alert alert-success" role="alert">
+    {{messages}}
+</div>
+{%endfor%}
+{%endif%}
+{%endwith%}
+<form action="/signup" method="post">
+    <h3>SignUp</h3>
+    <input name="fname" type="text" placeholder="First Name" id="fname">
+    <input name="lname" type="text" placeholder="Last Name" id="lname">
+    <input name="user_name" type="text" placeholder="User Name" id="user_name">
+    <input name="email" type="email" placeholder="Email" id="email">
+    <input name="password" type="password" placeholder="Password" id="password">
+
+    <button type="submit">SignUp</button>
+
+    <p>Already have an account? <a href="login">Login</a> </p>
+</form>
+{% endblock body %}

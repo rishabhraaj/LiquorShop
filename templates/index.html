@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+{% block title %} Home {% endblock title %}
+
+{% block body%}
+
+<head>
+    <link rel="stylesheet" href="../static/css/index.css">
+</head>
+<!--Section: Design Block-->
+<section>
+    <div class="video-container">
+        <video autoplay muted loop id="background-video">
+            <source src="../static/video/background_image_glass_strawberry.mp4" type="video/mp4">
+            <!-- Add additional sources for different video formats if necessary -->
+            Your browser does not support the video tag.
+        </video>
+        <!-- Your other content goes here -->
+        <div class="container d-flex justify-content-center align-items-center h-100">
+            <div class="row align-items-center">
+                <div class="col-12">
+                    <h1 class="mb-0 text-white display-1">High ON Life!</h1>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Explore button section -->
+    <div class="explore-button">
+        <a href="#explore-section">Explore</a>
+    </div>
+
+    <!-- Arrow Icon -->
+    <!-- Arrow Icon -->
+    <div class="arrow-down">
+        <i class="bi bi-arrow-down "></i> <!-- Bootstrap arrow down icon -->
+    </div>
+
+    <!-- Your other content goes here -->
+
+    <section id="explore-section">
+        <!-- Content you want to explore goes here -->
+    </section>
+
+
+</section>
+<!--Section: Design Block-->
+
+{% endblock body%}
