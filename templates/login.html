@@ -17,16 +17,17 @@
     <div class="shape"></div>
     <div class="shape"></div>
 </div>
-{% with messages= get_flashed_messages() %}
-{%if messages%}
-{%for messages in messages %}
-<div class="alert alert-success" role="alert">
-    {{messages}}
-</div>
-{%endfor%}
-{%endif%}
-{%endwith%}
+
 <form>
+    {% with messages= get_flashed_messages() %}
+    {%if messages%}
+    {%for messages in messages %}
+    <div class="alert alert-success" role="alert">
+        {{messages}}
+    </div>
+    {%endfor%}
+    {%endif%}
+    {%endwith%}
     <h3>Login Here</h3>
 
     <label for="username">Username</label>

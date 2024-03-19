@@ -15,16 +15,17 @@
     <div class="shape"></div>
     <div class="shape"></div>
 </div>
-{% with messages= get_flashed_messages() %}
-{%if messages%}
-{%for messages in messages %}
-<div class="alert alert-success" role="alert">
-    {{messages}}
-</div>
-{%endfor%}
-{%endif%}
-{%endwith%}
+
 <form action="/signup" method="post">
+    {% with messages= get_flashed_messages() %}
+    {%if messages%}
+    {%for messages in messages %}
+    <div class="alert alert-success" role="alert">
+        {{messages}}
+    </div>
+    {%endfor%}
+    {%endif%}
+    {%endwith%}
     <h3>SignUp</h3>
     <input name="fname" type="text" placeholder="First Name" id="fname">
     <input name="lname" type="text" placeholder="Last Name" id="lname">
