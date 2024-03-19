@@ -1,9 +1,11 @@
 from flask import Flask,render_template,request,flash,redirect,url_for
 from user import UserOperation
-
+from encryption import Encryption
 
 
 app=Flask(__name__)
+
+app.secret_key="88098as0d8a0sd8asd"
 
 userobj=UserOperation() #User object
 
@@ -29,6 +31,10 @@ def signup():
 
         urc=userobj.user_check(user_name)
         erc=userobj.email_check(email)
+
+        # ******************** PASSWORD ENCRYPTION ***********
+        e=Encryption()
+        password=e.convert(password)
 
         if(urc==0 and erc==0):
             userobj.user_insert(fname,lname,user_name,email,password)
